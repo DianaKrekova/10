@@ -8,16 +8,16 @@ class Human
 public:
 	Human();
 	Human(string s, string n, string m, int a);
-	virtual void print();
-	~Human();
-private:
+	virtual void print() = 0;
+	virtual ~Human();
+protected:
 	string surname;
 	string name;
 	string midname;
 	int age;
 };
 
-class Student:public Human
+class Student: virtual public Human
 {
 public:
 	Student();
@@ -28,7 +28,7 @@ private:
 	bool on_lesson;
 };
 
-class Boss:private Human
+class Boss: virtual public Human
 {
 public:
 	Boss();
